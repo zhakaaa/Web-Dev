@@ -1,0 +1,24 @@
+<h1>Каталог товаров </h1>
+<div class="products-container">
+  @for (product of products; track product.name) {
+      <div class="product-card">
+        <div class="product-image">
+          <img [src]="product.image" [alt]="product.name">
+        </div>
+
+        <div class="product-info">
+          <h3>{{ product.name }}</h3>
+          <p>Цена: <span class="product-price">{{product.price}} тенге </span> </p>
+          <p>{{ product.description }}</p>
+          <p>⭐ Рейтинг: {{ product.rating }}</p>
+        </div>
+
+        <div class="product-actions">
+          <button (click)="shareToWhatsApp(product.link)" >Поделиться в WhatsApp</button>
+          <button (click)="shareToTelegram(product.link)" >Поделиться в Telegram</button>
+        </div>
+      </div>
+
+  }
+</div>
+
