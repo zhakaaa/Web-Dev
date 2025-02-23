@@ -1,0 +1,12 @@
+<h1>Online Store</h1>
+
+<!-- Выбор категории -->
+<div class="categories">
+  <div *ngFor="let category of categories" class="category-card" (click)="selectCategory(category.name)">
+    <img [src]="category.image" [alt]="category.name">
+    <h3>{{ category.name }}</h3>
+  </div>
+</div>
+
+<!-- Отображение списка товаров -->
+<app-product-list *ngIf="selectedCategory" [category]="selectedCategory"></app-product-list>

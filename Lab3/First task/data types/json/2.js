@@ -1,4 +1,11 @@
-let jsonString = '{"name":"Bob","age":30,"city":"New York"}';
-let obj = JSON.parse(jsonString);
-console.log(obj.city);
-// Output: "New York"
+
+let person = { name: "David" };
+let pet = { type: "Dog", owner: person };
+person.pet = pet;
+
+let json = JSON.stringify(person, function replacer(key, value) {
+    return key === "pet" ? undefined : value;
+});
+
+console.log(json);
+// Output: '{"name":"David"}'
