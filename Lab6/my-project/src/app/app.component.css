@@ -1,0 +1,15 @@
+h1{
+  text-align: center;
+}
+
+.buttons{
+  text-align: center;
+}
+
+button{
+  padding: 10px;
+  margin:0 10px;
+  background: skyblue;
+  border: none;
+  border-radius: 5px;: ;
+}
