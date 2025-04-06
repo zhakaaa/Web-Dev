@@ -1,0 +1,13 @@
+pip install virtualenv - install package
+virtualenv myenv - create virtual environment
+source myenv/bin/activate  - activate the env
+
+pip install django - install django
+django-admin startproject myproject - create django project
+cd myproject
+
+python3 manage.py runserver - run server
+python3 manage.py migrate
+python3 manage.py createsuperuser 
+username: zhaka email: z_torekhan@kbtu.kz password: webdev2025
+http://127.0.0.1:8000/admin/
