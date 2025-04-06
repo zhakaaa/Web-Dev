@@ -1,6 +1,7 @@
 from django.db import models
 
-# Create your models here.
+
+# define the structure of my data
 class Category(models.Model):
     name = models.CharField(max_length=255)
 
@@ -13,7 +14,7 @@ class Product(models.Model):
     description = models.TextField()
     count = models.IntegerField()
     is_active = models.BooleanField(default=True)
-    category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
+    # category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name

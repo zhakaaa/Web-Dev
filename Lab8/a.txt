@@ -1,0 +1,17 @@
+django-admin startproject shop_back
+cd shop_back
+
+python3 manage.py startapp api - created django app
+
+added "api" to INSTALLED_APPS in shop_back/settings.py
+
+pip install djangorestframework
+
+add models
+
+Migrations are a way to track and apply changes to the database structure without losing data
+python3 manage.py makemigrations
+python3 manage.py migrate
+
+The view fetches data from the database by querying the Product model using Product.objects.all(). 
+The serializer converts the Product objects into JSON format, which is easy to send over HTTP. 
