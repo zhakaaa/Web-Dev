@@ -4,13 +4,17 @@ from rest_framework.response import Response
 from rest_framework import status
 from .models import Company, Vacancy
 from .serializers import CompanySerializer, VacancySerializer
+# Always use @api_view for FBV 
+# APIView/GenericAPIView/ViewSet for CBV
 
+# list all companies
 @api_view(['GET'])
 def company_list(request):
     companies = Company.objects.all()
     serializer = CompanySerializer(companies, many=True)
     return Response(serializer.data)
 
+# get one company 
 @api_view(['GET'])
 def company_detail(request, id):
     try:
@@ -21,6 +25,7 @@ def company_detail(request, id):
     serializer = CompanySerializer(company)
     return Response(serializer.data)
 
+# list vacancy by company
 @api_view(['GET'])
 def company_vacancies(request, id):
     try:
@@ -32,12 +37,16 @@ def company_vacancies(request, id):
     serializer = VacancySerializer(vacancies, many=True)
     return Response(serializer.data)
 
+
+# list all vacancy
 @api_view(['GET'])
 def vacancy_list(request):
     vacancies = Vacancy.objects.all()
     serializer = VacancySerializer(vacancies, many=True)
     return Response(serializer.data)
 
+
+# get one vacancy
 @api_view(['GET'])
 def vacancy_detail(request, id):
     try:
@@ -48,8 +57,15 @@ def vacancy_detail(request, id):
     serializer = VacancySerializer(vacancy)
     return Response(serializer.data)
 
+# list top 10 vacancy
 @api_view(['GET'])
 def top_ten_vacancies(request):
     vacancies = Vacancy.objects.order_by('-salary')[:10]
     serializer = VacancySerializer(vacancies, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def list_company(request):
+    companies = Company.objects.all()
+    serializer = CompanySerializer(companies)
     return Response(serializer.data)
